@@ -13,4 +13,4 @@ echo script criado por LUIS FILIPE MATIAS BRAGA
 #comando para alterar a porta utilizando o comando "sed"
 
 
-sed -i 's/Port [0-9]\+$/Port 10000/' /etc/ssh/ssh_config
+sudo sed -i "s/Port22/Port 10000/g" /etc/ssh/ssh_config
