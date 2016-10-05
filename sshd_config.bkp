@@ -1,0 +1,16 @@
+#!/bin/bash
+echo script criado por LUIS FILIPE MATIAS BRAGA
+
+
+
+#1) ALTERAR o script instala_ssh.sh para:
+#• Troque a porta do SSHd para 10000 (10 mil);
+#◦ fazer uma cópia de segurança do arquivo com o comando “cp” (criar
+#sshd_config.bkp);
+#◦ editar o arquivo “/etc/ssh/sshd_config”;
+#◦ trocar a linha “Port 22” para “Port 10000” (10 mil) usando o comando “sed”
+
+#comando para alterar a porta utilizando o comando "sed"
+
+
+sed -i 's/Port [0-9]\+$/Port 10000/' /etc/ssh/ssh_config
