@@ -1,0 +1,125 @@
+#!/bin/bash
+# Escrito por Luis Braga
+
+
+
+principal() {           # Função principal do programa
+    clear               # limpa a tela
+echo "[1]Mostrar a localização atual do usuário no sistema de arquivos''
+echo "[2]  Mostrar o tipo de um arquivo''
+echo "[3] Criar um diretório''
+echo "[4] Apagar um diretório não vazio''
+echo "[5] ler 2 números e indicar qual é o maior deles e qual é o menor''
+echo "[6]  Exibir as últimas linhas de um arquivo(pedir ao usuário a quantidade de linhas a
+mostrar''
+echo "[7] Exibir as primeiras linhas de um arquivo(pedir ao usuário a quantidade de linhas a
+mostrar''
+echo "[8]  Mostrar a localização de um comando específico utilizar which ou whereis''
+echo "[9]  Mostra um diretório informado pelo usuário em formato de árvore (instalar comando
+tree''
+echo "[10]  Copiar um arquivo para um outro diretório (usuário deve informar qual é o arquivo e
+qual é o diretório''
+echo "[11] Mover um arquivo para outro diretório''
+echo "[12] Sair"
+echo
+echo -n "Qual a opcao desejada ? "
+    read opcao          # faz a leitura da variável "opcao", 
+                        # que será utilizada no comando case
+                        # para indicar qual a opção a ser utilizada
+
+                        # caso o valor da variável "opcao"...
+    case $opcao in
+        1)              # seja igual a "1", então faça as instruções abaixo
+            clear
+           sudo pwd    # Localiza o arquivo"
+        2)
+            clear
+            ls --  # comando que exibe o tipo de arquivo
+        
+	3)
+	clear
+	mkdir #comando que cria um diretório
+
+	4)clear
+	rm -Rf <directory> #comando que remove arquivos não vazios
+
+	5)clear
+	#Verifica se um nmero é maior, menor ou igual a outro
+
+	a=6
+	b=3
+
+	if [ $a -lt $b ]
+	then
+   	echo '$a é menor que $b!'
+	elif [ $a -gt $b ]
+	then
+  	 echo '$a é maior que $b!'
+	elif [ $a -eq $b ]
+	then
+  	 echo '$a é igual a $b!'
+	fi
+
+	6)clear
+	tail -n "Arquivo_Exemplo" | grep -n ^ | grep ^7 #comando para exibir as ultimas linhas de arquivo, pedindo ao usuário o numero de linhas
+
+	7)clear
+	head -$p2 $p1 #comando para exibir as primeira linhas do arquivo
+
+	8)clear 
+	$witch clear #exibe o caminho do comando clear
+	
+	9)clear 
+	ls <diretorio>tree #exibe o diretorio em formato tree
+	
+	10)clear
+	cp arquivo-origem arquivo-destino #copia o arquivo para conforme origem e destino definido pelo usuario.
+
+	11)clear
+	mv arquivo-origem arquivo-destino #move o arquivo para conforme origem e destino definido pelo usuario.
+	
+
+
+
+
+
+
+
+
+
+	12)
+            clear
+            exit ;;
+        *)              # esta opçao existe para caso o usuário digite um 
+                        # valor diferente de 1, 2,3,4,5,6,7,8,9,10,11 ou 12
+            opcao_invalida ;;
+    esac
+}
+
+laranja() {             # função da opção laranja
+    echo "Laranja"
+    read pause          # usado para pausar a execução do script
+    principal           # volta para a função principal
+}
+
+martelo() {             # função da opção martelo
+    clear
+    echo "Martelo"
+    read pause
+    principal
+}
+
+opcao_invalida() {      # função da opção inválida
+    clear
+    echo "Opcao desconhecida."
+    read pause
+    principal
+}
+
+principal               # o script começa aqui, as funções das linhas anteriores
+                        # são lidas pelo interpretador bash e armazenadas em memória.
+
+                        # o bash não tem como adivinhar qual das funções ele deve 
+                        # executar, por isto o a execução do script realmente começa
+                        # quando aparece uma instrução fora de uma função, neste caso,
+                        # chamando a função principal
